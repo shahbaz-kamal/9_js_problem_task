@@ -1,24 +1,22 @@
-const n = 5;
-const arr = [1, 2, 3, 4];
-const sumElements = () => {
-  let testArr = [];
+const n = 2;
+const arr = [-9000, 9000];
 
-  for (let i = 1; i <= n; i++) {
-    testArr.push(i);
-  }
+const checkingValidity = () => {
+  const condition1 = n >= 1 && n <= 1000;
+  const condition3 = arr.length === n;
+  const condition2 = arr.every((number) => number >= -10000 && number <= 10000);
 
-  const arrEqual = (arr, testArr) =>
-    arr.length === testArr.length &&
-    arr.every((value, index) => value === testArr[index]);
-
-  const isEqual = arrEqual(arr, testArr);
-  if (!isEqual) {
-    console.log(0);
-    return;
-  } else {
-    const sum = arr.reduce((acc, curr) => acc + curr, 0);
-    console.log(sum);
-    return sum;
-  }
+  if (condition1 && condition2 && condition3) {
+    return true;
+  } else return false;
 };
-sumElements();
+const checked = checkingValidity();
+
+const sumElements = () => {
+  const sum = arr.reduce((acc, curr) => acc + curr, 0);
+  console.log(sum);
+};
+
+if (checked) {
+  sumElements();
+} else console.log("Condition dosen't match");
